@@ -6,11 +6,11 @@ This project is a cross-platform OpenGL implementation that supports multiple op
 
 - [CMake](https://cmake.org/) version **3.15** or higher
 - A C++ compiler supporting:
-  - **MSVC** (for Windows)
-  - **Clang** (optional for Linux/macOS)
-- **OpenGL** version **3.3** or higher
-- **libx11** (Linux) or **XQuartz** (macOS)
-- (Planned) Native Cocoa Objective-C runtime for macOS
+  - **MSVC** (for Windows).
+  - **Clang** (optional for Linux/macOS).
+- **OpenGL** version **3.3** or higher.
+- **libx11** (Linux) or **XQuartz** (macOS).
+- (Planned) Native Cocoa Objective-C runtime for macOS.
 
 ## 📁 Project Structure
 ```bash
