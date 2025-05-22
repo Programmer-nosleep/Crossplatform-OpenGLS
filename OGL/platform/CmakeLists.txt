@@ -1,0 +1,18 @@
+cmake_minimum_required(VERSION 3.15)
+project(RenderGl LANGUAGES C CXX OBJC)
+
+file(GLOB SOURCE_FILES
+	${CMAKE_SOURCE_DIR}/Win32/context/*.cpp
+	${CMAKE_SOURCE_DIR}/Win32/window/*.cpp	
+)
+
+file(GLOB HEADER_FILES
+	${CMAKE_SOURCE_DIR}/Win32/context/*.hpp
+	${CMAKE_SOURCE_DIR}/Win32/window/*.h
+)
+
+add_library(${PROJECT_NAME} STATIC ${SOURCE_FILES} ${HEADER_FILES})
+target_include_directories(${PROJECT_NAME
+	INTERFACE
+	${CMAKE_SOURCE_DIR}/
+)

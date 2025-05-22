@@ -1,23 +1,26 @@
-#ifndef __WINDOWS_PLATFORM_x86_64_H__
-#define __WINDOWS_PLATFORM_x86_64_H__
+#ifndef WINDOWS_PLATFORM_x86_64_H
+#define WINDOWS_PLATFORM_x86_64_H
 #define UNICODE
 
-#include <cstdint>
+#include <string>
 
 #include <Windows.h>
-#include <gl/GL.h>
 
 class Win32Window
 {
 public:
-	Win32Window() = default;
-	~Win32Window() = default;
+	Win32Window(HINSTANCE, int, int, const std::string&);
+	~Win32Window();
 
-	void render();
+	bool ProcessMessages();
+
+	HWND GetHWND() const;
 
 private:
-	void* m_handler = nullptr;
+	HWND m_handler = nullptr;
 	int width, height;
+
+	static LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 };
 
 #endif

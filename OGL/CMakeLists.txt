@@ -20,7 +20,7 @@ elseif(CMAKE_SYSTEM_NAME STREQUAL "Darwin" OR OSX)
 endif()
 
 # Add source to this project's executable.
-add_executable (${PROJECT_NAME} ${SOURCE_FILES})
+add_executable (${PROJECT_NAME} ${SOURCE_FILES} "platform/App.h" "platform/App.cpp" "platform/Win32/context/OpenGLContext.cpp")
 
 if (CMAKE_SYSTEM_NAME STREQUAL "Linux" AND NOT CMAKE_SYSTEM_NAME STREQUAL "Windows")
 	find_package(X11 REQUIRED)
