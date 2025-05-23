@@ -13,25 +13,26 @@ This project is a cross-platform OpenGL implementation that supports multiple op
 - (Planned) Native Cocoa Objective-C runtime for macOS.
 
 ## 📁 Project Structure
-```bash
-Crossplatform-OpenGLS/
+```powershell
+Crossplatform-OpenGLS
+│
 ├── .gitignore
 ├── CMakeLists.txt
 ├── CMakePresets.json
-├── OGL/
-│   ├── CMakeFiles/
-│   └── platform/
-│       ├── Cocoa/
-│       ├── Win32/
-│       │   ├── context/
-│       │   ├── core/
-│       │   ├── input/
-│       │   └── window/
-│       └── X11/
-│           ├── context/
-│           ├── core/
-│           ├── input/
-│           └── window/
+└── OGL
+    ├── CMakeFiles
+    └── platform
+        ├── Cocoa
+        ├── Win32
+        │   ├── context
+        │   ├── core
+        │   ├── input
+        │   └── window
+        └── X11
+            ├── context
+            ├── core
+            ├── input
+            └── window
 ```
 
 ## ✨ Features
