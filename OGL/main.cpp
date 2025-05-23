@@ -1,11 +1,4 @@
-﻿// #include <cstdint>
-// #include <cstdio>
-// #include <cstdlib>
-// #include <cmath>
-
-// #include <string>
-
-#ifdef _WIN32
+﻿#ifdef _WIN32
 #define UNICODE
 #include <Windows.h>
 
@@ -35,7 +28,7 @@ int main(int argc, char** argv)
 #if defined (_WIN32)
     App app(GetModuleHandle(nullptr));
     
-	  return app.runner();
+    return app.runner();
 #elif defined (__unix__) || defined (__linux__)
   Display *ds;
 

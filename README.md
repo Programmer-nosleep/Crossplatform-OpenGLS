@@ -51,19 +51,9 @@ Crossplatform-OpenGLS
     cmake -B build -G "Visual Studio 17 2022"
     ```
 
-2. Open the project:
+2. Run the application:
     ```powershell
-    cmake --open build
-    ```
-
-3. Build the project in **Debug** mode:
-    ```powershell
-    cmake --build build --config Debug
-    ```
-
-4. Run the application:
-    ```powershell
-    build/Debug/Crossplatform-OpenGLS.exe
+    out/build/x64-debug/OGL/Crossplatform-OpenGLS.exe
     ```
 
 ### 🐧 Linux (GCC/Clang)
@@ -97,7 +87,7 @@ Support for macOS using **Cocoa** and **XQuartz** is planned. The build process 
 
 ## 📌 Notes
 
-- Windows build output is placed in `build/Debug/`
+- Windows build output is placed in `build/Debug/` or `out/build/x64-debug/OGL/`
 - Linux build output is placed in `build/` by default
 - macOS output location and instructions will be added soon
 

@@ -15,7 +15,7 @@ Win32Window::Win32Window(HINSTANCE hInstance, int w, int h, const std::string& n
 	LPCWSTR CLASS_NAME = L"Sample Window Class";
 	WNDCLASS wc = {};
 
-	wc.lpfnWndProc = WindowProc;  // Perbaiki nama fungsi
+	wc.lpfnWndProc = WindowProc;
 	wc.hInstance = GetModuleHandle(NULL);
 	wc.lpszClassName = CLASS_NAME;
 

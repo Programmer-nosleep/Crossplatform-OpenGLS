@@ -2,7 +2,7 @@
 # and include sub-projects here.
 #
 cmake_minimum_required (VERSION 3.15)
-project ("OGL" LANGUAGES CXX)
+project ("Crossplatform-OpenGLS" LANGUAGES C CXX)
 
 # Enable Hot Reload for MSVC compilers if supported.
 if(CMAKE_CXX_COMPILER STREQUAL "MSVC")

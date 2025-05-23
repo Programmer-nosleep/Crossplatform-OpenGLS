@@ -6,6 +6,7 @@
 
 #ifdef _WIN32
 #include <Windows.h>
+#include <gl/GL.h>
 
 #include "Win32/window/Win32Window.h"
 #include "Win32/context/OpenGLContext.hpp"
