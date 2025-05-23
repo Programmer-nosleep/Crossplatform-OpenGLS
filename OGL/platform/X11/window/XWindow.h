@@ -4,6 +4,7 @@
 #include <cstdint>
 
 #include <X11/X.h>
+#include <X11/Xlib.h>
 #include <X11/Xutil.h>
 
 class XWindow 
@@ -11,6 +12,15 @@ class XWindow
 public:
   XWindow(int w, int h);
   ~XWindow();
+
+  void InitializeDisplay();
+  void CreateWindow();
+  void ConfigureAttributes();
+  void SetWindowHints();
+  void SetWindowProperties();
+
+  void Show();
+  void RunEventLoop();
 
 private:
   void* m_handler = nullptr;

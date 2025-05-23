@@ -30,12 +30,12 @@ public:
 #if defined (_WIN32)
 	App(HINSTANCE hInst);
 	~App() = default;
-
+	
 	int runner(); 
 #elif defined (__linux__) || defined (__unix__)
 	App();
 	~App() = default;
-
+	
 	int runner();
 #else
 
