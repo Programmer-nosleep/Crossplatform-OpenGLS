@@ -1,18 +1,47 @@
 cmake_minimum_required(VERSION 3.15)
-project(RenderGl LANGUAGES C CXX OBJC)
 
-file(GLOB SOURCE_FILES
-	${CMAKE_SOURCE_DIR}/Win32/context/*.cpp
-	${CMAKE_SOURCE_DIR}/Win32/window/*.cpp	
-)
+if(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
+	project(RenderGl LANGUAGES C CXX)
+else()
+	project(RenderGl LANGUAGES C CXX)
+endif()
 
-file(GLOB HEADER_FILES
-	${CMAKE_SOURCE_DIR}/Win32/context/*.hpp
-	${CMAKE_SOURCE_DIR}/Win32/window/*.h
-)
+if(CMAKE_SYSTEM_NAME STREQUAL "Windows")
+	file(GLOB SOURCE_FILES
+		${CMAKE_CURRENT_SOURCE_DIR}/platform/App.cpp
+		${CMAKE_CURRENT_SOURCE_DIR}/Win32/window/*.cpp
+		${CMAKE_CURRENT_SOURCE_DIR}/Win32/context/*.cpp
+	)
+
+	file(GLOB HEADER_FILES
+		${CMAKE_CURRENT_SOURCE_DIR}/platform/App.h
+		${CMAKE_CURRENT_SOURCE_DIR}/Win32/window/*.h
+		${CMAKE_CURRENT_SOURCE_DIR}/Win32/context/*.hpp
+	)
+elseif(CMAKE_SYSTEM_NAME STREQUAL "Linux")
+	file(GLOB SOURCE_FILES
+		${CMAKE_CURRENT_SOURCE_DIR}/platform/App.cpp
+		${CMAKE_CURRENT_SOURCE_DIR}/X11/window/*.h
+	)
+
+	file(GLOB HEADER_FILES
+		${CMAKE_CURRENT_SOURCE_DIR}/platform/App.h
+		${CMAKE_CURRENT_SOURCE_DIR}/X11/window/*.h
+	)
+elseif(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
+	file(GLOB SOURCE_FILES
+		${CMAKE_CURRENT_SOURCE_DIR}/platform/App.mm
+		${CMAKE_CURRENT_SOURCE_DIR}/Cocoa/window/*.mm
+	)
+
+	file(GLOB HEADER_FILES
+		${CMAKE_CURRENT_SOURCE_DIR}/platform/App.h
+		${CMAKE_CURRENT_SOURCE_DIR}/Cocoa/window/*.h
+	)
+endif()
 
 add_library(${PROJECT_NAME} STATIC ${SOURCE_FILES} ${HEADER_FILES})
-target_include_directories(${PROJECT_NAME
-	INTERFACE
-	${CMAKE_SOURCE_DIR}/
+target_include_directories(${PROJECT_NAME}
+	PUBLIC
+	${CMAKE_CURRENT_SOURCE_DIR}
 )

@@ -1,4 +1,6 @@
 #include "Win32Window.h"
+#include <minwinbase.h>
+#include <winuser.h>
 #define UNICODE
 
 #include <cstdio>

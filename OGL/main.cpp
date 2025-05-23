@@ -1,9 +1,9 @@
-﻿#include <cstdint>
-#include <cstdio>
-#include <cstdlib>
-#include <cmath>
+﻿// #include <cstdint>
+// #include <cstdio>
+// #include <cstdlib>
+// #include <cmath>
 
-#include <string>
+// #include <string>
 
 #ifdef _WIN32
 #define UNICODE
@@ -11,7 +11,7 @@
 
 #include <gl/GL.h>
 
-#include "platform/Win32/window/Win32Window.h"
+#include "platform/App.h"
 
 #elif defined (__unix__) || defined (__linux__)
 #include <unistd.h>
@@ -30,14 +30,12 @@
 #include "platform/Cocoa/window/Window.mm"
 #endif
 
-#include "platform/App.h"
-
 int main(int argc, char** argv)
 {
 #if defined (_WIN32)
     App app(GetModuleHandle(nullptr));
     
-	return app.runner();
+	  return app.runner();
 #elif defined (__unix__) || defined (__linux__)
   Display *ds;
 
