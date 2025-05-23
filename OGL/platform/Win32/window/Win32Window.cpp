@@ -1,6 +1,4 @@
 #include "Win32Window.h"
-#include <minwinbase.h>
-#include <winuser.h>
 #define UNICODE
 
 #include <cstdio>
@@ -9,7 +7,7 @@
 #include <Windows.h>
 #include <gl/GL.h>
 
-Win32Window::Win32Window(HINSTANCE hInstance, int w, int h, const std::string& name)
+Win32Window::Win32Window(HINSTANCE hInstance, int w, int h, LPCWSTR name)
 	: width(w), height(h)
 {
 	LPCWSTR CLASS_NAME = L"Sample Window Class";
@@ -24,7 +22,7 @@ Win32Window::Win32Window(HINSTANCE hInstance, int w, int h, const std::string& n
 	m_handler = CreateWindowExW(
 		0,
 		CLASS_NAME,
-		L"Learn to Program Windows",
+		name,
 		WS_OVERLAPPEDWINDOW,
 
 		CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT,
@@ -37,7 +35,8 @@ Win32Window::Win32Window(HINSTANCE hInstance, int w, int h, const std::string& n
 
 	if (m_handler == NULL)
 	{
-		printf("Failed to get window�handle.\n");
+		printf("Failed to get window handle.\n");
+		DestroyWindow(m_handler);
 	}
 
 	ShowWindow(m_handler, SW_SHOW);
@@ -87,5 +86,7 @@ HWND Win32Window::GetHWND() const
 Win32Window::~Win32Window()
 {
 	if (m_handler)
+	{
 		DestroyWindow(m_handler);
+	}
 }

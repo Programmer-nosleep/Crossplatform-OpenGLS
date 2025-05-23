@@ -1,5 +1,5 @@
 ﻿# CMakeList.txt : CMake project for OGL
-
+if(CMAKE_SYSTEM_NAME STREQUAL "Windows")
 file(GLOB SOURCE_FILES
     main.cpp
     platform/App.cpp
@@ -8,12 +8,24 @@ file(GLOB SOURCE_FILES
 file(GLOB HEADER_FILES
     platform/App.h
 )
+else()
+file(GLOB SOURCE_FILES
+    main.cpp
+)
+endif()
+
 
 # Add platform subdirectory for window and context implementations
+if(CMAKE_SYSTEM_NAME STREQUAL "Windows")
 add_subdirectory(platform)
+endif()
 
 # Add source to this project's executable
+if(CMAKE_SYSTEM_NAME STREQUAL "Windows")
 add_executable(${PROJECT_NAME} ${SOURCE_FILES} ${HEADER_FILES})
+else()
+add_executable(${PROJECT_NAME} ${SOURCE_FILES})
+endif()
 
 # Platform specific configurations
 if(CMAKE_SYSTEM_NAME STREQUAL "Windows")
@@ -27,7 +39,7 @@ elseif(CMAKE_SYSTEM_NAME STREQUAL "Linux")
     find_package(X11 REQUIRED)
     find_package(OpenGL REQUIRED)
     target_link_libraries(${PROJECT_NAME} PRIVATE
-        RenderGl
+        # RenderGl
         X11::X11
         OpenGL::GL
     )

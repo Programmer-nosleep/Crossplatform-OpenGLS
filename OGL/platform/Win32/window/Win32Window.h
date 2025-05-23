@@ -2,14 +2,12 @@
 #define WINDOWS_PLATFORM_x86_64_H
 #define UNICODE
 
-#include <string>
-
 #include <Windows.h>
 
 class Win32Window
 {
 public:
-	Win32Window(HINSTANCE, int, int, const std::string&);
+	Win32Window(HINSTANCE, int, int, LPCWSTR);
 	~Win32Window();
 
 	bool ProcessMessages();

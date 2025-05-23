@@ -1,5 +1,7 @@
-#ifndef __LINUX_PLATFORM_x86_64_H__
-#define __LINUX_PLATFORM_x86_64_H__
+#ifndef LINUX_PLATFORM_x86_64_H
+#define LINUX_PLATFORM_x86_64_H
+
+#include <cstdint>
 
 #include <X11/X.h>
 #include <X11/Xutil.h>
@@ -7,8 +9,9 @@
 class XWindow 
 {
 public:
-  XWindow() = default;
-  ~XWindow() = default;
+  XWindow(int w, int h);
+  ~XWindow();
+
 private:
   void* m_handler = nullptr;
   int width, height;
